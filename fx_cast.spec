@@ -79,7 +79,7 @@ $PWD/node-v%{nodev}-%{archnode}/bin/npm config set registry http://registry.npmj
 $PWD/node-v%{nodev}-%{archnode}/bin/npm cache clean --force
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install fs-extra mustache makensis pkg@4.4.0 node-fetch dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install @types/mime-types @types/dnssd castv2 jasmine 
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install webpack web-ext copy-webpack-plugin
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install ts-loader webpack web-ext copy-webpack-plugin 
 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm run build:app
