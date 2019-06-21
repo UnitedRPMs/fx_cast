@@ -1,6 +1,6 @@
 # tips node thanks to 314eter
 
-%{?nodejs_find_provides_and_requires}
+#{?nodejs_find_provides_and_requires}
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 %global __provides_exclude_from %{_libdir}/mozilla/native-messaging-hosts
@@ -97,7 +97,7 @@ install -Dm644 "dist/ext/%{name}-%{version}.xpi" "%{buildroot}/%{_libdir}/mozill
 
 
 %files
-%defattr(755, root, root)
+#defattr(755, root, root)
 %{_bindir}/fx_cast_bridge
 %{_libdir}/mozilla/native-messaging-hosts/fx_cast_bridge.json
 %{_libdir}/mozilla/extensions/*/fx_cast@matt.tf.xpi
