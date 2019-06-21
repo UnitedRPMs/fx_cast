@@ -1,0 +1,37 @@
+diff -ruN orig/app/bin/build.js new/app/bin/build.js
+--- orig/app/bin/build.js	2019-06-18 18:39:19.000000000 -0600
++++ new/app/bin/build.js	2019-06-20 17:00:04.957887340 -0600
+@@ -116,7 +116,8 @@
+         spawnSync("mv", [ path.join(BUILD_PATH, "src/*"), BUILD_PATH ]
+               , spawnOptions);
+     } else {
+-        fs.moveSync(path.join(BUILD_PATH, "src"), BUILD_PATH);
++    fs.copySync(path.join(BUILD_PATH, "src"), BUILD_PATH);
++    fs.removeSync(path.join(BUILD_PATH, "src"));
+     }
+ 
+     // Copy other files
+@@ -189,7 +190,7 @@
+     // Run pkg to create a single executable
+     await pkg.exec([
+         BUILD_PATH
+-      , "--target", `${pkgPlatform[argv.platform]}-${argv.arch}`
++      , "--target", `node10-${pkgPlatform[argv.platform]}-${argv.arch}`
+       , "--output", path.join(BUILD_PATH, tempExecutableName)
+     ]);
+ 
+diff -ruN orig/ext/bin/build.js new/ext/bin/build.js
+--- orig/ext/bin/build.js	2019-06-18 18:39:19.000000000 -0600
++++ new/ext/bin/build.js	2019-06-20 17:01:30.518734862 -0600
+@@ -32,10 +32,7 @@
+     process.exit(1);
+ }
+ 
+-// If packaging, use production mode
+-if (argv.package) {
+-    argv.mode = "production";
+-}
++
+ 
+ 
+ // Import webpack config and specify env values
