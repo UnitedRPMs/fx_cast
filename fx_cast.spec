@@ -1,5 +1,8 @@
 # tips node thanks to 314eter
 
+# workaround debug-id conflicts (with vdhcoapp)
+%global _build_id_links none
+
 #{?nodejs_find_provides_and_requires}
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
@@ -23,12 +26,12 @@
 %endif
 
 # commit
-%global _commit 0a9af094190c14d7b4625828784d1d274541ef4f
+%global _commit cb0ac66e0d1afe633e7da7c35cc7d36f4694fb21
 %global _shortcommit %(c=%{_commit}; echo ${c:0:7})
 
 Name:    fx_cast
 Version: 0.0.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Implementation of the Chrome Sender API Chromecast within Firefox
 
 Group:   Applications/Multimedia
@@ -103,6 +106,9 @@ install -Dm644 "dist/ext/%{name}-%{version}.xpi" "%{buildroot}/%{_libdir}/mozill
 %{_libdir}/mozilla/extensions/*/fx_cast@matt.tf.xpi
 
 %changelog
+
+* Sat Jun 22 2019 David Va <davidva AT tuta DOT io> 0.0.3-2
+- Updated to current commit
 
 * Thu Jun 20 2019 David Va <davidva AT tuta DOT io> 0.0.3-1
 - Initial package
