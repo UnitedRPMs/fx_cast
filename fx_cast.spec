@@ -84,10 +84,11 @@ $PWD/node-v%{nodev}-%{archnode}/bin/npm config set registry http://registry.npmj
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install fs-extra mustache makensis pkg@4.4.0 node-fetch dnssd
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install @types/mime-types @types/dnssd castv2 jasmine 
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install ts-loader webpack web-ext copy-webpack-plugin 
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev jasmine
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm run build:app
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm run package:ext
