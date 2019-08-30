@@ -89,6 +89,8 @@ $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev jasmine
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev node-fetch
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm run build:app
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm run package:ext
