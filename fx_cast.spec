@@ -42,7 +42,7 @@ Source0: https://github.com/hensm/fx_cast/archive/%{_commit}/%{name}-%{_shortcom
 # Sorry but we need a specific node for compatibility
 Source1: https://github.com/nvm-sh/nvm/archive/v%{nvm_ver}.tar.gz
 Source2: https://nodejs.org/dist/v%{nodev}/node-v%{nodev}-%{archnode}.tar.gz
-Source3: %{name}.service
+Source3: %{name}.desktop
 #Patch:	fx_cast.patch
 
 ExclusiveArch: x86_64
@@ -99,21 +99,14 @@ install -Dm755 dist/app/fx_cast_bridge "%{buildroot}/opt/fx_cast/fx_cast_bridge"
 install -Dm644 dist/app/fx_cast_bridge.json -t "%{buildroot}/%{_libdir}/mozilla/native-messaging-hosts/"
 #install -Dm644 "dist/ext/%{name}-%{version}.xpi" "%{buildroot}/%{_libdir}/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/fx_cast@matt.tf.xpi"
 
-install -Dm644 %{S:3} -t %{buildroot}/%{_prefix}/lib/systemd/system/%{name}.service
-
-%post 
-%systemd_post %{name}.service
-
-%preun 
-%systemd_preun %{name}.service
-
+install -Dm644 %{S:3} -t %{buildroot}/etc/xdg/autostart/%{name}.desktop
 
 %files
 #defattr(755, root, root)
 /opt/fx_cast/fx_cast_bridge
 %{_libdir}/mozilla/native-messaging-hosts/fx_cast_bridge.json
 #{_libdir}/mozilla/extensions/*/fx_cast@matt.tf.xpi
-%{_prefix}/lib/systemd/system/%{name}.service
+/etc/xdg/autostart/%{name}.desktop
 
 %changelog
 

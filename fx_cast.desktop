@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=fx_cast
+
+Comment=Implementation of the Chrome Sender API Chromecast within Firefox
+
+Icon=fx_cast
+Exec=/opt/fx_cast/fx_cast_bridge
+Terminal=false
+Type=Application
+StartupNotify=false
