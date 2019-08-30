@@ -101,14 +101,12 @@ install -Dm644 dist/app/fx_cast_bridge.json -t "%{buildroot}/%{_libdir}/mozilla/
 
 install -Dm644 %{S:3} -t %{buildroot}/%{_prefix}/lib/systemd/system/%{name}.service
 
-%post session
+%post 
 %systemd_post %{name}.service
 
-%preun session
+%preun 
 %systemd_preun %{name}.service
 
-%postun session
-%systemd_postun %{name}.service
 
 %files
 #defattr(755, root, root)

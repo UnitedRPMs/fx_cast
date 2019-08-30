@@ -1,7 +1,6 @@
+[Unit]
 Description=Start the Chrome Sender API Chromecast within Firefox
-
-Wants=network.target
-After=syslog.target network-online.target
+After=network-online.target remote-fs.target systemd-user-sessions.service
 
 [Service]
 Type=simple
