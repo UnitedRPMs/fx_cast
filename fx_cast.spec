@@ -85,6 +85,8 @@ $PWD/node-v%{nodev}-%{archnode}/bin/npm config set registry http://registry.npmj
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install @types/mime-types @types/dnssd castv2 jasmine 
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install ts-loader webpack web-ext copy-webpack-plugin 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm run build:app
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm run package:ext
