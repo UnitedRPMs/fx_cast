@@ -99,7 +99,7 @@ install -Dm755 dist/app/fx_cast_bridge "%{buildroot}/opt/fx_cast/fx_cast_bridge"
 install -Dm644 dist/app/fx_cast_bridge.json -t "%{buildroot}/%{_libdir}/mozilla/native-messaging-hosts/"
 #install -Dm644 "dist/ext/%{name}-%{version}.xpi" "%{buildroot}/%{_libdir}/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/fx_cast@matt.tf.xpi"
 
-install -Dm755 %{S:3} %{buildroot}/etc/systemd/system/%{name}.service
+install -Dm644 %{S:3} -t %{buildroot}/etc/systemd/system/%{name}.service
 
 %post
 systemctl enable fx_cast
