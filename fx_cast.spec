@@ -101,10 +101,10 @@ env -i PYTHON=/usr/bin/python2.7
 
 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm config set registry http://registry.npmjs.org/ 
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine --save-dev 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install bufferutil@^4.0.1
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install utf-8-validate@^5.0.2
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save-dev
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev jasmine
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
 #$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
