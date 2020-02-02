@@ -112,7 +112,7 @@ $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/node-fetch
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/mime-types
-#$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev castv2
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev castv2
 $PWD/node-v%{nodev}-%{archnode}/bin/npm audit fix
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm run build:app
