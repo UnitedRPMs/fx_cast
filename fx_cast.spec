@@ -86,10 +86,6 @@ web apps to enable cast support.
 
 %build
 
-unset http_proxy
-unset no_proxy 
-unset https_proxy
-
 # activate nvm
 mv -f nvm-%{nvm_ver} ~/nvm
 echo "source ~/nvm/nvm.sh" >> ~/.bashrc
@@ -106,12 +102,13 @@ env -i PYTHON=/usr/bin/python2.7
 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm config set registry http://registry.npmjs.org/ 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine --save-dev 
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install bufferutil@^4.0.1
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install utf-8-validate@^5.0.2
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install bufferutil@^4.0.1 --save-dev
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install utf-8-validate@^5.0.2 --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
+#$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev git+https://github.com/zeit/pkg.git
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/node-fetch
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/dnssd
