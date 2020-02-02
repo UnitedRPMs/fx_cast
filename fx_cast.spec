@@ -1,3 +1,20 @@
+#
+# spec file for package fx_cast
+#
+# Copyright (c) 2020 UnitedRPMs.
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://goo.gl/zqFJft
+#
+
 # tips node thanks to 314eter
 
 # workaround debug-id conflicts (with vdhcoapp)
@@ -13,10 +30,10 @@
 %global __requires_exclude (npm|libnode)
 
 # globals for node and nodewebkit (nw)
-%global nodev 10.12.0
+%global nodev 13.7.0
 
 # Nvm version
-%global nvm_ver 0.34.0 
+%global nvm_ver 0.35.2 
 
 #defining architectures
 %ifarch x86_64
@@ -26,11 +43,11 @@
 %endif
 
 # commit
-%global _commit adf62dfa875738ddc61919a3ce236ff29335706f
+%global _commit fc6f9c1886e7c90723ab9f855aa2c1c1da79990f
 %global _shortcommit %(c=%{_commit}; echo ${c:0:7})
 
 Name:    fx_cast
-Version: 0.0.4
+Version: 0.0.5
 Release: 2%{?dist}
 Summary: Implementation of the Chrome Sender API Chromecast within Firefox
 
@@ -78,18 +95,24 @@ nvm install %{nodev}
 nvm use %{nodev}
 
 export PATH=$PATH:$PWD/node-v%{nodev}-%{archnode}/bin:/usr/bin/
-#$PWD/node-v%{nodev}-%{archnode}/bin/npm config set python /usr/bin/python2 
+#$PWD/node-v%{nodev}-%{archnode}/bin/npm config set python /usr/bin/python2.7
+env -i PYTHON=/usr/bin/python2.7
+
+
+
 $PWD/node-v%{nodev}-%{archnode}/bin/npm config set registry http://registry.npmjs.org/ 
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install bufferutil@^4.0.1
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install utf-8-validate@^5.0.2
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev jasmine
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
+#$PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
+#$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/node-fetch
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/mime-types
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev castv2
+#$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev castv2
 $PWD/node-v%{nodev}-%{archnode}/bin/npm audit fix
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm run build:app
@@ -115,6 +138,9 @@ install -Dm644 %{S:3} -t %{buildroot}/etc/xdg/autostart/%{name}.desktop
 /etc/xdg/autostart/%{name}.desktop
 
 %changelog
+
+* Fri Jan 31 2020 David Va <davidva AT tuta DOT io> 0.0.5-2
+- Updated to 0.0.5
 
 * Thu Aug 29 2019 David Va <davidva AT tuta DOT io> 0.0.4-2
 - Updated to 0.0.4
