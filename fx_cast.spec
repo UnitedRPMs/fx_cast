@@ -43,7 +43,7 @@
 %endif
 
 # commit
-%global _commit fc6f9c1886e7c90723ab9f855aa2c1c1da79990f
+%global _commit 5e4c8d20f476637abd8eb4e33495062d8023fb74
 %global _shortcommit %(c=%{_commit}; echo ${c:0:7})
 
 Name:    fx_cast
@@ -85,6 +85,10 @@ web apps to enable cast support.
 #patch -p1 
 
 %build
+
+unset http_proxy
+unset no_proxy 
+unset https_proxy
 
 # activate nvm
 mv -f nvm-%{nvm_ver} ~/nvm
