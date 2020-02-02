@@ -107,8 +107,7 @@ $PWD/node-v%{nodev}-%{archnode}/bin/npm install utf-8-validate@^5.0.2 --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install mustache --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install jasmine-console-reporter --save-dev
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install makensis --save-dev
-#$PWD/node-v%{nodev}-%{archnode}/bin/npm install pkg --save-dev
-$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev git+https://github.com/zeit/pkg.git
+$PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev pkg 
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/node-fetch
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev dnssd
 $PWD/node-v%{nodev}-%{archnode}/bin/npm install --save-dev @types/dnssd
