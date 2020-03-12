@@ -43,12 +43,12 @@
 %endif
 
 # commit
-%global _commit 5e4c8d20f476637abd8eb4e33495062d8023fb74
+%global _commit ffb4916474f5a9b4df3f4c9dd6d7f5100132bfd1
 %global _shortcommit %(c=%{_commit}; echo ${c:0:7})
 
 Name:    fx_cast
-Version: 0.0.5
-Release: 2%{?dist}
+Version: 0.0.6
+Release: 1%{?dist}
 Summary: Implementation of the Chrome Sender API Chromecast within Firefox
 
 Group:   Applications/Multimedia
@@ -138,6 +138,9 @@ install -Dm644 %{S:3} -t %{buildroot}/etc/xdg/autostart/%{name}.desktop
 /etc/xdg/autostart/%{name}.desktop
 
 %changelog
+
+* Wed Mar 11 2020 David Va <davidva AT tuta DOT io> 0.0.6-1
+- Updated to 0.0.6
 
 * Fri Jan 31 2020 David Va <davidva AT tuta DOT io> 0.0.5-2
 - Updated to 0.0.5
