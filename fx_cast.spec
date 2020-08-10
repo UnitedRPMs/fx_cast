@@ -43,11 +43,11 @@
 %endif
 
 # commit
-%global _commit ffb4916474f5a9b4df3f4c9dd6d7f5100132bfd1
+%global _commit ba9c1bab72c830a01ba5dc281536f98f0e5f16e3
 %global _shortcommit %(c=%{_commit}; echo ${c:0:7})
 
 Name:    fx_cast
-Version: 0.0.6
+Version: 0.0.7
 Release: 1%{?dist}
 Summary: Implementation of the Chrome Sender API Chromecast within Firefox
 
@@ -69,6 +69,7 @@ BuildRequires: mingw32-nsis
 BuildRequires: dpkg
 BuildRequires: gcc
 BuildRequires: gcc-c++
+BuildRequires: avahi-compat-libdns_sd-devel
 
 %if 0%{?fedora} >= 29
 BuildRequires: python-unversioned-command
@@ -138,6 +139,9 @@ install -Dm644 %{S:3} -t %{buildroot}/etc/xdg/autostart/%{name}.desktop
 /etc/xdg/autostart/%{name}.desktop
 
 %changelog
+
+* Sat Aug 08 2020 David Va <davidva AT tuta DOT io> 0.0.7-1
+- Updated to 0.0.7
 
 * Wed Mar 11 2020 David Va <davidva AT tuta DOT io> 0.0.6-1
 - Updated to 0.0.6
