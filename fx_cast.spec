@@ -43,11 +43,11 @@
 %endif
 
 # commit
-%global _commit ba9c1bab72c830a01ba5dc281536f98f0e5f16e3
+%global _commit a56c23d80713685372f16b0b4779b96c88e056fe
 %global _shortcommit %(c=%{_commit}; echo ${c:0:7})
 
 Name:    fx_cast
-Version: 0.0.7
+Version: 0.1.2
 Release: 1%{?dist}
 Summary: Implementation of the Chrome Sender API Chromecast within Firefox
 
@@ -124,10 +124,14 @@ sed -i 's#"path": ".*"#"path": "/opt/fx_cast/fx_cast_bridge"#' dist/app/fx_cast_
 
 
 %install
+mkdir -p %{buildroot}/opt/fx_cast/
+mkdir -p %{buildroot}/%{_libdir}/mozilla/native-messaging-hosts/
 
-install -Dm755 dist/app/fx_cast_bridge "%{buildroot}/opt/fx_cast/fx_cast_bridge"
-install -Dm644 dist/app/fx_cast_bridge.json -t "%{buildroot}/%{_libdir}/mozilla/native-messaging-hosts/"
+pushd dist/app/
+install -Dm644 fx_cast_bridge.sh "%{buildroot}/opt/fx_cast/fx_cast_bridge"
+install -Dm644 fx_cast_bridge.json -t "%{buildroot}/%{_libdir}/mozilla/native-messaging-hosts/"
 #install -Dm644 "dist/ext/%{name}-%{version}.xpi" "%{buildroot}/%{_libdir}/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/fx_cast@matt.tf.xpi"
+popd
 
 install -Dm644 %{S:3} -t %{buildroot}/etc/xdg/autostart/%{name}.desktop
 
@@ -139,6 +143,9 @@ install -Dm644 %{S:3} -t %{buildroot}/etc/xdg/autostart/%{name}.desktop
 /etc/xdg/autostart/%{name}.desktop
 
 %changelog
+
+* Mon Sep 14 2020 David Va <davidva AT tuta DOT io> 0.1.2-1
+- Updated to 0.1.2
 
 * Sat Aug 08 2020 David Va <davidva AT tuta DOT io> 0.0.7-1
 - Updated to 0.0.7
